@@ -1,15 +1,20 @@
 {
   "Proxy 1": {
-    "hostname": "localhost",
-    "source": 443,
-    "target": 1867,
+    "port": 443,
+    "target": "localhost:1867",
     "cert": "/etc/apache2/server.pem",
     "key": "/etc/apache2/server.key"
   },
   "Proxy 2": {
-    "hostname": "localhost",
-    "source": 5001,
-    "target": 3001,
+    "port": 5001,
+    "target": "localhost:3001",
+    "cert": "/etc/apache2/server.pem",
+    "key": "/etc/apache2/server.key"
+  },
+  "Proxy 3": {
+    "port": 8443,
+    "insecure": "",
+    "target": "localhost:8444",
     "cert": "/etc/apache2/server.pem",
     "key": "/etc/apache2/server.key"
   }
