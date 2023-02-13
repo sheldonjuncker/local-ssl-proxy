@@ -30,5 +30,5 @@ Object.keys(config).forEach(function(name) {
     console.error(chalk.red("Request failed to " + name + ": " + chalk.bold(e.code)));
   }).listen(port);
 
-  console.log(chalk.green("Started " + chalk.bold(name) + ": https://localhost:" + port, "→ http://" + target));
+  console.log(chalk.green("Started " + chalk.bold(name) + ": localhost:" + port, "→ " + target));
 });
