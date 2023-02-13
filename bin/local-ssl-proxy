@@ -16,14 +16,13 @@ Object.keys(config).forEach(function(name) {
   var key = options.key || args.key;
   var cert = options.cert || args.cert;
   var source = options.source || args.source;
+  var insecure = options.insecure || false;
 
   proxy.createServer({
     xfwd: true,
     ws: true,
-    target: {
-      host: hostname,
-      port: target
-    },
+    target: target,
+    secure: !insecure,
     ssl: {
       key: fs.readFileSync(key, "utf8"),
       cert: fs.readFileSync(cert, "utf8")
