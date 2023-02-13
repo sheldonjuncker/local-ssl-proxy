@@ -22,34 +22,34 @@ test('key', t => {
   t.truthy(key);
 });
 
-test('hostname (default)', t => {
-  const { hostname } = commandline.parse([]);
-  t.is(hostname, 'localhost');
+test('port (default)', t => {
+  const { port } = commandline.parse([]);
+  t.is(port, 9001);
 });
 
-test('hostname', t => {
-  const { hostname } = commandline.parse(['--hostname', '127.0.0.1']);
-  t.is(hostname, '127.0.0.1');
-});
-
-test('source (default)', t => {
-  const { source } = commandline.parse([]);
-  t.is(source, 9001);
-});
-
-test('source', t => {
-  const { source } = commandline.parse(['--source', '5001']);
-  t.is(source, 5001);
+test('port', t => {
+  const { port } = commandline.parse(['--port', '5001']);
+  t.is(port, 5001);
 });
 
 test('target (default)', t => {
   const { target } = commandline.parse([]);
-  t.is(target, 9000);
+  t.is(target, "localhost:9000");
 });
 
 test('target', t => {
-  const { target } = commandline.parse(['--target', '5000']);
-  t.is(target, 5000);
+  const { target } = commandline.parse(['--target', 'localhost:5000']);
+  t.is(target, 'localhost:5000');
+});
+
+test('insecure (default)', t => {
+    const { insecure } = commandline.parse([]);
+    t.is(insecure, undefined);
+});
+
+test('insecure', t => {
+    const { insecure } = commandline.parse(['--insecure']);
+    t.is(insecure, true);
 });
 
 test('config', t => {

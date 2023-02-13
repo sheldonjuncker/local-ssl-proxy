@@ -15,7 +15,7 @@ Run
 ---
 To start a proxy from port `9001` to `9000` run:
 ```sh
-local-ssl-proxy --source 9001 --target 9000
+local-ssl-proxy --port 9001 --target "localhost:9000"
 ```
 
 Start your web server on the target port (`9000` in the example) and navigate to `https://localhost:<source-port>` ([https://localhost:9001](https://localhost:9001) in the example). You'll get a warning because the certificate is self-signed, this is safe to ignore during development.
@@ -30,12 +30,13 @@ Example config:
 ```json
 {
   "My proxy": {
-    "source": 3001,
-    "target": 3000
+    "port": 3001,
+    "target": "localhost:3000"
   },
   "Another proxy": {
-    "source": 9999,
-    "target": 9000
+    "port": 9999,
+    "target": "localhost:9000",
+    "insecure": true
   }
 }
 ```
