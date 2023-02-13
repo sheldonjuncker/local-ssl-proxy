@@ -14,7 +14,7 @@ const program = commander
   .command(name)
   .version(version, "-v, --version", "show version number")
   .option("-p, --port <port>", "source port for the server", parseInteger, 9001)
-  .option("-t, --target <target>", "target host and port for the server", "http://localhost:9000")
+  .option("-t, --target <target>", "target host and port for the server", "localhost:9000")
   .option("-i, --insecure", "disables checking for SSL on the server proxied to.")
   .option(
     "-c, --cert <cert>",
