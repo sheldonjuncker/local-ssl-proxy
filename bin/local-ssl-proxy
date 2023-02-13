@@ -11,11 +11,10 @@ var config = args.config || { proxy: args };
 
 Object.keys(config).forEach(function(name) {
   var options = config[name];
-  var hostname = options.hostname || args.hostname;
   var target = options.target || args.target;
   var key = options.key || args.key;
   var cert = options.cert || args.cert;
-  var source = options.source || args.source;
+  var port = options.source || args.port;
   var insecure = options.insecure || false;
 
   proxy.createServer({
@@ -29,7 +28,7 @@ Object.keys(config).forEach(function(name) {
     }
   }).on("error", function(e) {
     console.error(chalk.red("Request failed to " + name + ": " + chalk.bold(e.code)));
-  }).listen(source);
+  }).listen(port);
 
-  console.log(chalk.green("Started " + chalk.bold(name) + ": https://" + hostname + ":" + source, "→ http://" + hostname + ":" + target));
+  console.log(chalk.green("Started " + chalk.bold(name) + ": https://localhost:" + port, "→ http://" + target));
 });
