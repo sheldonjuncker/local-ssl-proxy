@@ -6,6 +6,7 @@
     "key": "/etc/apache2/server.key"
   },
   "Proxy 2": {
+    "host": "127.0.0.1",
     "port": 5001,
     "target": "localhost:3001",
     "cert": "/etc/apache2/server.pem",

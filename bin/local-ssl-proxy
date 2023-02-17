@@ -14,6 +14,7 @@ Object.keys(config).forEach(function(name) {
   var target = options.target || args.target;
   var key = options.key || args.key;
   var cert = options.cert || args.cert;
+  var host = options.host || args.host;
   var port = options.source || args.port;
   var insecure = options.insecure || false;
 
@@ -28,7 +29,7 @@ Object.keys(config).forEach(function(name) {
     }
   }).on("error", function(e) {
     console.error(chalk.red("Request failed to " + name + ": " + chalk.bold(e.code)));
-  }).listen(port);
+  }).listen(port, host);
 
-  console.log(chalk.green("Started " + chalk.bold(name) + ": localhost:" + port, "→ " + target));
+  console.log(chalk.green("Started " + chalk.bold(name) + ": " + host + ":" + port, "→ " + target));
 });

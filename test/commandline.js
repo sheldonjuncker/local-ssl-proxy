@@ -42,6 +42,16 @@ test('target', t => {
   t.is(target, 'localhost:5000');
 });
 
+test('host (default))', t => {
+  const { host } = commandline.parse([]);
+  t.is(host, "localhost");
+});
+
+test('host', t => {
+  const { host } = commandline.parse(['--host', '127.0.0.1']);
+  t.is(host, '127.0.0.1');
+});
+
 test('insecure (default)', t => {
     const { insecure } = commandline.parse([]);
     t.is(insecure, undefined);
